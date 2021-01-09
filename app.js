@@ -1,7 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+require('./models/Metas')
+const Meta = mongoose.model('Meta')
+
 const app = express()
+app.use(express.json())
 
 mongoose.connect('mongodb://localhost/myapp', {
   useNewUrlParser: true,
@@ -16,8 +20,12 @@ app.get('/metas', async (req, res) => {
   return res.json({ message: 'Ola mundo node' })
 })
 
-app.post('/metas', async (rec, res) => {
+app.post('/metas', async (req, res) => {
   console.log(req.body)
+  return res.json({
+    error: false,
+    metas: req.body
+  })
 })
 
 app.listen(8080, () => {
