@@ -7,7 +7,7 @@ const Meta = mongoose.model('Meta')
 const app = express()
 app.use(express.json())
 
-mongoose.connect('mongodb://localhost/myapp', {
+mongoose.connect('mongodb://localhost/Metas', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -21,10 +21,15 @@ app.get('/metas', async (req, res) => {
 })
 
 app.post('/metas', async (req, res) => {
-  console.log(req.body)
+  await Meta.create(req.body, (err) => {
+    if (err) return res.status(400).json({
+      error: true,
+      message: "Erro: Meta não cadastrada com sucesso!",
+    })
+  })
   return res.json({
     error: false,
-    metas: req.body
+    metas: "Meta cadastrada com sucesso!"
   })
 })
 
