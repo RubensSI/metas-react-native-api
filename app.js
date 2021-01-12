@@ -22,7 +22,7 @@ mongoose.connect('mongodb://localhost/Metas', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
-  console.log("Conexão com o banco de dados relizada com sucesso!")
+  console.log("Conexão com o banco de dados realizada com sucesso!")
 }).catch((err) => {
   console.log("Erro: Conexão não realizada com sucesso", `${err}`)
 })
