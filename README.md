@@ -16,3 +16,10 @@ Instalar o mongoose, essa dependência traduz os dados do banco de dados para
 objetos javascript para que possam ser utilizados pela aplicação
 ### npm i --save mongoose
 
+Permitir acesso a API
+### npm i --save cors
+
+Middlewares são executados antes de qualquer instrucão do programa
+next
+
+pesquisar npmjs.
